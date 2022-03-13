@@ -20,24 +20,24 @@ test('Click on Elements', async ({ page }) => {
   await expect(errorMessage).toContainText('Login and/or password are wrong.')
 })
 
-// test.skip('Selectors ', async ({ page }) => {
-//   //text
-//   await page.click('text=some text')
+test.skip('Selectors ', async ({ page }) => {
+  //text
+  await page.click('text=some text')
 
-//   //css selectors
-//   await page.click('button')
-//   await page.click('#id')
-//   await page.click('.class')
+  //css selectors
+  await page.click('button')
+  await page.click('#id')
+  await page.click('.class')
 
-//   //only visible css selectors
-//   await page.click('.submit-button:visible')
+  //only visible css selectors
+  await page.click('.submit-button:visible')
 
-//   //combinations
-//   await page.click('#username .first')
+  //combinations
+  await page.click('#username .first')
 
-//   //xpath
-//   await page.click('//button')
-// })
+  //xpath
+  await page.click('//button')
+})
 
 test.describe('My first test suite', () => {
   test('simple basic test @run', async ({ page }) => {
@@ -60,24 +60,24 @@ test.describe('My first test suite', () => {
     await expect(errorMessage).toContainText('Login and/or password are wrong.')
   })
 
-//   test.skip('Selectors ', async ({ page }) => {
-//     //text
-//     await page.click('text=some text')
+  test.skip('Selectors ', async ({ page }) => {
+    //text
+    await page.click('text=some text')
 
-//     //css selectors
-//     await page.click('button')
-//     await page.click('#id')
-//     await page.click('.class')
+    //css selectors
+    await page.click('button')
+    await page.click('#id')
+    await page.click('.class')
 
-//     //only visible css selectors
-//     await page.click('.submit-button:visible')
+    //only visible css selectors
+    await page.click('.submit-button:visible')
 
-//     //combinations
-//     await page.click('#username .first')
+    //combinations
+    await page.click('#username .first')
 
-//     //xpath
-//     await page.click('//button')
-//   })
+    //xpath
+    await page.click('//button')
+  })
   //.only to run the specified test
   test('Working with Inputs', async ({ page }) => {
     await page.goto('http://zero.webappsecurity.com/index.html')
@@ -90,19 +90,34 @@ test.describe('My first test suite', () => {
     await expect(errorMessage).toContainText('Login and/or password are wrong.')
   })
 
-//   test.skip('Assertions', async ({ page }) => {
-//     await page.goto('')
-//     await expect(page).toHaveURL('')
-//     await expect(page).toHaveTitle('')
+  test.skip('Assertions', async ({ page }) => {
+    await page.goto('')
+    await expect(page).toHaveURL('')
+    await expect(page).toHaveTitle('')
 
-//     const element = await page.locator('')
-//     await expect(element).toBeVisible()
-//     await expect(element).toHaveText('')
-//     await expect(element).toHaveCount(1)
+    const element = await page.locator('')
+    await expect(element).toBeVisible()
+    await expect(element).toHaveText('')
+    await expect(element).toHaveCount(1)
 
-//     const nonExistingElement = await page.locator('')
-//     await expect(nonExistingElement).not.toBeVisible()
-//   })
+    const nonExistingElement = await page.locator('')
+    await expect(nonExistingElement).not.toBeVisible()
+  })
 
-//   test('Annotation', async ({ page }) => {})
+})
+
+test('Screenshots', async ({ page }) => {
+    //1. step is load website
+    await page.goto('https://www.google.com')
+    //2. take screenshot for full page
+    await page.screenshot({path:'screenshot.png', fullPage:true})
+
+
+})
+
+test.only('single element screenshot',async({page})=>{
+    await page.goto('https://www.google.com')
+    const element = await page.$('.QS5gu.ud1jmf')
+    await element.screenshot({path:'single_element_screenshot.png'})
+
 })
