@@ -30,4 +30,9 @@ npx playwright test
 npx playwright test --headed
 ````
 
+5. To run Playwright Headless on specific browser run the following command (Chromium, Firefox, Webkit)
+````
+npx playwright test --config=playwright.config.ts --project={Browser name}
+````
+
 
